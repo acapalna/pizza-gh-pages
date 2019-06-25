@@ -13,21 +13,36 @@ window.Shop = {
 
     getPizzaHtml:function(product){
 
-        return `<div class="col-lg-4 d-flex ftco-animate">
-                    <div class="services-wrap d-flex">
-                      <a href="#" class="img" style="background-image: url(images/pizza-1.jpg);"></a>
-                        <div class="text p-4">
-                            <h3>${product.name}</h3>
+         // return `<div>${product.name}-----${product.description}</div>`
+
+        // return `<div class="col-lg-4 d-flex ftco-animate">
+        //     <div class="services-wrap d-flex">
+        //       <a href="#" class="img" style="background-image: url(${product.imagePath});"></a>
+        //       <div class="text p-4">
+        //         <h3>${product.name}</h3>
+        //         <p>${product.description}</p>
+        //         <p class="price"><span>$${product.price}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+        //       </div>
+        //     </div>
+        //   </div>`
+
+
+        return `<div class="col-md-4 text-center">
+                        <div class="menu-wrap">
+                          <a href="#" class="menu-img img mb-4" style="background-image: url(${product.imagePath});"></a>
+                          <div class="text">
+                            <h3><a href="#">${product.name}</a></h3>
                             <p>${product.description}</p>
-                            <p class="price"><span>$${product.price}</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+                            <p class="price"><span>$${product.price}</span></p>
+                            <p><a href="#" class="btn btn-white btn-outline-white">Add to cart</a></p>
+                          </div>
                         </div>
-                    </div>
-                </div>`
+                      </div>`
     },
 
-    displayPizzas: function (pizzas) {
+    displayPizzas: function (products) {
         let pizzasHtml = "";
-        pizzas.forEach(item => pizzasHtml += Shop.getPizzaHtml(item));
+        products.forEach(item => pizzasHtml += Shop.getPizzaHtml(item));
 
         //cssSelector
         $('#pizza-container').html(pizzasHtml);
